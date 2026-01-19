@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧪 Three.js Lab
 
-## Getting Started
+An interactive 3D graphics learning platform and playground built with **Next.js**, **Three.js**, and **React Three Fiber**. This repository serves as a comprehensive lab for exploring 3D geometries, materials, maps, and advanced animations.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Interactive Geometries**: Explore various 3D shapes including Box, Sphere, Torus, and Custom geometries.
+- **Material Playground**: Live demos of MeshBasic, Lambert, Phong, Standard, and specialized materials like Point and LineDashed.
+- **Texture & Mapping**: Implementation examples for Normal, AO, Alpha, Displacement, and Metalness maps.
+- **Advanced Demos**: 
+  - Character animation (Archer demo)
+  - Scene Graph visualizations
+  - Custom shader-like effects
+- **Real-time Controls**: Integrated with **Leva** for real-time parameter adjustment in the browser.
+- **Modern UI**: Styled with **Tailwind CSS 4** and **Shadcn/UI** for a sleek, dark-themed developer experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 15+](https://nextjs.org/)
+- **3D Engine**: [Three.js](https://threejs.org/)
+- **React Wrapper**: [React Three Fiber (R3F)](https://docs.pmnd.rs/react-three-fiber/)
+- **Helper Library**: [@react-three/drei](https://github.com/pmndrs/drei)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **UI Components**: [Shadcn/UI](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/)
+- **Controls**: [Leva](https://github.com/pmndrs/leva)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js 18+ (Recommended)
+- npm / yarn / pnpm
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone <your-repository-url>
+   cd threejs-lab
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the interactive lab.
+
+## 📁 Project Structure
+
+- `src/app`: Next.js App Router pages and layouts.
+- `src/components/canvas`: Core 3D component demos (Geometry, Material, Map, etc.)
+- `src/lib`: Navigation data and utility functions.
+- `public`: Static assets including 3D models and textures.
+
+## 📝 Commit Convention
+
+This project follows the **Conventional Commits** specification.
+- `feat`: New features
+- `fix`: Bug fixes
+- `chore`: Maintenance tasks
+- `docs`: Documentation updates
+- `style`: UI styling changes
+
+---
+
+Developed with ❤️ by **Antigravity** for 3D enthusiasts.
