@@ -24,6 +24,7 @@ export const tutorialNav = [
             { title: "Extrude Text", url: "/geometry/extrude-text" },
             { title: "Plane", url: "/geometry/plane" },
             { title: "Ring", url: "/geometry/ring" },
+            { title: "Shape", url: "/geometry/shape" },
             { title: "Sphere", url: "/geometry/sphere" },
             { title: "Torus", url: "/geometry/torus" },
             { title: "Torus Knot", url: "/geometry/torus-knot" },
