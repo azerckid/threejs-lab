@@ -17,7 +17,7 @@ export const tutorialNav = [
         items: [
             { title: "Box", url: "/geometry/box" },
             { title: "Circle", url: "/geometry/circle" },
-            { title: "Corn", url: "/geometry/corn" },
+            { title: "Cone", url: "/geometry/cone" },
             { title: "Custom", url: "/geometry/custom" },
             { title: "Cylinder", url: "/geometry/cylinder" },
             { title: "Extrude Heart", url: "/geometry/extrude-heart" },
