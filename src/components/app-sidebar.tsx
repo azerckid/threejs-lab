@@ -16,8 +16,9 @@ import {
     SidebarMenuSubItem,
     SidebarRail,
 } from "@/components/ui/sidebar"
+import * as Collapsible from "@radix-ui/react-collapsible"
 import { tutorialNav } from "@/lib/nav-data"
-import { Box, Code } from "lucide-react"
+import { Box, Code, ChevronRight } from "lucide-react"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const pathname = usePathname()
@@ -44,27 +45,39 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarContent>
                 <SidebarMenu className="px-2 py-4">
                     {tutorialNav.map((category) => (
-                        <SidebarMenuItem key={category.title}>
-                            <SidebarMenuButton tooltip={category.title} className="hover:bg-sidebar-accent">
-                                {category.icon && <category.icon className="size-4" />}
-                                <span className="font-medium">{category.title}</span>
-                            </SidebarMenuButton>
-                            {category.items?.length ? (
-                                <SidebarMenuSub>
-                                    {category.items.map((item) => (
-                                        <SidebarMenuSubItem key={item.title}>
-                                            <SidebarMenuSubButton
-                                                asChild
-                                                isActive={pathname === item.url}
-                                                className="transition-all duration-200"
-                                            >
-                                                <Link href={item.url}>{item.title}</Link>
-                                            </SidebarMenuSubButton>
-                                        </SidebarMenuSubItem>
-                                    ))}
-                                </SidebarMenuSub>
-                            ) : null}
-                        </SidebarMenuItem>
+                        <Collapsible.Root
+                            key={category.title}
+                            asChild
+                            defaultOpen={pathname.startsWith(category.url)}
+                            className="group/collapsible"
+                        >
+                            <SidebarMenuItem>
+                                <Collapsible.Trigger asChild>
+                                    <SidebarMenuButton tooltip={category.title} className="hover:bg-sidebar-accent">
+                                        {category.icon && <category.icon className="size-4" />}
+                                        <span className="font-medium">{category.title}</span>
+                                        <ChevronRight className="ml-auto size-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                    </SidebarMenuButton>
+                                </Collapsible.Trigger>
+                                <Collapsible.Content>
+                                    {category.items?.length ? (
+                                        <SidebarMenuSub>
+                                            {category.items.map((item) => (
+                                                <SidebarMenuSubItem key={item.title}>
+                                                    <SidebarMenuSubButton
+                                                        asChild
+                                                        isActive={pathname === item.url}
+                                                        className="transition-all duration-200"
+                                                    >
+                                                        <Link href={item.url}>{item.title}</Link>
+                                                    </SidebarMenuSubButton>
+                                                </SidebarMenuSubItem>
+                                            ))}
+                                        </SidebarMenuSub>
+                                    ) : null}
+                                </Collapsible.Content>
+                            </SidebarMenuItem>
+                        </Collapsible.Root>
                     ))}
                 </SidebarMenu>
             </SidebarContent>
