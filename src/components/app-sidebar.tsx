@@ -81,18 +81,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     ))}
                 </SidebarMenu>
             </SidebarContent>
-            <SidebarFooter className="border-t border-border/50 py-4">
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton asChild>
-                            <a href="https://github.com/zizimoos" target="_blank" rel="noreferrer">
-                                <Code className="size-4" />
-                                <span className="font-medium">GitHub Repo</span>
-                            </a>
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
-                </SidebarMenu>
-            </SidebarFooter>
             <SidebarRail />
         </Sidebar>
     )
