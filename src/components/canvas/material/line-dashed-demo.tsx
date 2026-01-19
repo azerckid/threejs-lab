@@ -5,6 +5,8 @@ import { useFrame } from "@react-three/fiber"
 import { useControls } from "leva"
 import * as THREE from "three"
 
+const Line = "line" as any
+
 export function LineDashedDemo() {
     const groupRef = React.useRef<THREE.Group>(null)
 
@@ -29,7 +31,7 @@ export function LineDashedDemo() {
 
     return (
         <group ref={groupRef}>
-            <line onUpdate={(line) => line.computeLineDistances()}>
+            <Line onUpdate={(line: any) => line.computeLineDistances()}>
                 <bufferGeometry>
                     <bufferAttribute
                         attach="attributes-position"
@@ -42,7 +44,7 @@ export function LineDashedDemo() {
                     gapSize={gapSize}
                     scale={scale}
                 />
-            </line>
+            </Line>
 
             <lineLoop position={[3, 0, 0]} onUpdate={(line) => line.computeLineDistances()}>
                 <bufferGeometry>

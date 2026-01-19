@@ -5,6 +5,8 @@ import { useFrame } from "@react-three/fiber"
 import { useControls } from "leva"
 import * as THREE from "three"
 
+const Line = "line" as any
+
 export function LineDemo() {
     const groupRef = React.useRef<THREE.Group>(null)
 
@@ -27,7 +29,7 @@ export function LineDemo() {
     return (
         <group ref={groupRef}>
             {/* Basic Line */}
-            <line position={[0, 0, 0]}>
+            <Line position={[0, 0, 0]}>
                 <bufferGeometry>
                     <bufferAttribute
                         attach="attributes-position"
@@ -35,7 +37,7 @@ export function LineDemo() {
                     />
                 </bufferGeometry>
                 <lineBasicMaterial color={color} />
-            </line>
+            </Line>
 
             {/* Line Loop */}
             <lineLoop position={[3, 0, 0]}>
