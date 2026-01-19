@@ -1,65 +1,56 @@
-import Image from "next/image";
+import { DashboardLayout } from "@/components/dashboard-layout"
+import { Box, Code2, Cpu, Palette } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <DashboardLayout>
+      <div className="flex flex-1 flex-col items-center justify-center space-y-8 p-8 md:p-12">
+        <div className="flex flex-col items-center space-y-4 text-center">
+          <div className="flex size-20 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+            <Box className="size-10" />
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Three.js Interactive Lab
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">
+            실시간 3D 렌더링 화면과 실제 소스 코드를 동시에 탐색하며 Three.js의 핵심 원리를 학습하는 인터랙티브 대시보드입니다.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:max-w-5xl">
+          <FeatureCard
+            icon={<Cpu className="size-6" />}
+            title="Geometries"
+            description="다양한 형상(Box, Sphere, Torus 등)의 구조와 속성을 시각적으로 확인합니다."
+          />
+          <FeatureCard
+            icon={<Palette className="size-6" />}
+            title="Materials"
+            description="재질의 특성과 조명에 따른 반사 정도를 실시간으로 실험합니다."
+          />
+          <FeatureCard
+            icon={<Code2 className="size-6" />}
+            title="Live Code"
+            description="화면에서 실행 중인 실제 React Three Fiber 코드를 즉시 확인하고 분석합니다."
+          />
         </div>
-      </main>
+
+        <div className="mt-8 rounded-xl border border-border/50 bg-muted/30 p-4 text-sm text-muted-foreground font-medium">
+          사이드바에서 학습할 항목을 선택하여 시작하세요.
+        </div>
+      </div>
+    </DashboardLayout>
+  )
+}
+
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
+  return (
+    <div className="group relative flex flex-col space-y-3 rounded-2xl border border-border/50 bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
+      <div className="flex size-12 items-center justify-center rounded-xl bg-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
+        {icon}
+      </div>
+      <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+      <p className="text-muted-foreground leading-relaxed">{description}</p>
     </div>
-  );
+  )
 }
