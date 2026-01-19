@@ -7,14 +7,14 @@ import { Code2, View } from "lucide-react"
 
 interface TutorialPageLayoutProps {
     children: React.ReactNode // This will be the 3D Canvas component
-    code?: string
+    codeBlock?: React.ReactNode // Pre-rendered CodeBlock
     title: string
     description?: string
 }
 
 export function TutorialPageLayout({
     children,
-    code = "// Source code will appear here",
+    codeBlock,
     title,
     description
 }: TutorialPageLayoutProps) {
@@ -51,9 +51,9 @@ export function TutorialPageLayout({
                         <TabsContent value="code" className="flex-1 overflow-hidden m-0 border-none">
                             <ScrollArea className="size-full">
                                 <div className="p-4 pt-0">
-                                    <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-300 text-xs font-mono leading-relaxed overflow-x-auto border border-zinc-800/50">
-                                        <code>{code}</code>
-                                    </pre>
+                                    <div className="rounded-lg bg-zinc-950 p-4 border border-zinc-800/50 overflow-x-auto">
+                                        {codeBlock || <div className="text-xs text-muted-foreground italic">Code not available</div>}
+                                    </div>
                                 </div>
                             </ScrollArea>
                         </TabsContent>
