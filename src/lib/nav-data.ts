@@ -50,6 +50,7 @@ export const tutorialNav = [
         url: "/map",
         icon: MapIcon,
         items: [
+            { title: "Basic Map", url: "/map/basic" },
             { title: "AO Map", url: "/map/ao" },
             { title: "Alpha Map", url: "/map/alpha" },
             { title: "Displacement Map", url: "/map/displacement" },
